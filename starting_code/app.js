@@ -2,13 +2,13 @@
  * Package Imports
 */
 
-const path = require('path');
-require('dotenv').config();
 const express = require('express');
 const partials = require('express-partials');
 const session = require('express-session');
 const passport = require('passport');
 const GitHubStrategy = require('passport-github2').Strategy;
+const path = require('path');
+require('dotenv').config();
 
 
 const app = express();
@@ -32,9 +32,9 @@ passport.use(new GitHubStrategy({
   clientID: GITHUB_CLIENT_ID,
   clientSecret: GITHUB_CLIENT_SECRET,
   callbackURL: 'http://localhost:3000/auth/github/callback',
-}), (accessToken, refreshToken, profile, done) => {
+}, (accessToken, refreshToken, profile, done) => {
   return done(null, profile);
-});
+}));
 
 
 passport.serializeUser((user, done) => {
