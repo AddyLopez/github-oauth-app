@@ -2,8 +2,8 @@
  * Package Imports
 */
 
-const path = require("path");
-require("dotenv").config();
+const path = require('path');
+require('dotenv').config();
 const express = require('express');
 const partials = require('express-partials');
 const session = require('express-session');
@@ -31,7 +31,7 @@ const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 passport.use(new GitHubStrategy({
   clientID: GITHUB_CLIENT_ID,
   clientSecret: GITHUB_CLIENT_SECRET,
-  callbackURL: "http://localhost:3000/auth/github/callback",
+  callbackURL: 'http://localhost:3000/auth/github/callback',
 }), (accessToken, refreshToken, profile, done) => {
   return done(null, profile);
 });
@@ -99,8 +99,8 @@ app.get('/auth/github', passport.authenticate('github', {
 }));
 // authorization callback URL. This is where GitHub will redirect after a user authorizes it
 app.get('/auth/github/callback', passport.authenticate('github', {
-  failureRedirect: "/login",
-  successRedirect: "/"
+  failureRedirect: 'login',
+  successRedirect: '/'
 }));
 
 
