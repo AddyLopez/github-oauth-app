@@ -2,15 +2,21 @@
  * Package Imports
 */
 
-const session = require('express-session');
 
 const path = require("path");
 require("dotenv").config();
 const express = require('express');
 const partials = require('express-partials');
+const session = require('express-session');
 
 
 const app = express();
+
+app.use(session({
+  secret: 'codecademy',
+  resave: false,
+  saveUninitialized: false
+}));
 
 
 /*
