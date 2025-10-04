@@ -34,8 +34,8 @@ const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 
 // second argument is the verify callback function, which is used to find a user
 passport.use(new GitHubStrategy({
-  clientID: process.env.GITHUB_CLIENT_ID,
-  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  clientID: GITHUB_CLIENT_ID,
+  clientSecret: GITHUB_CLIENT_SECRET,
   callbackURL: "http://localhost:3000/auth/github/callback"
 }), (accessToken, refreshToken, profile, done) => {
   return done(null, profile);
