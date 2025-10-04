@@ -86,7 +86,10 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-app.get('/auth/github');
+app.get('/auth/github', passport.authenticate('github', {
+  scope: ['user']
+}));
+// passport.authenticate(<strategy>, <scope of the grant>)
 
 
 
