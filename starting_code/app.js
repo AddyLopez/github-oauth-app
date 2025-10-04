@@ -13,15 +13,10 @@ const GitHubStrategy = require('passport-github2').Strategy;
 
 const app = express();
 
-app.use(session({
-  secret: 'codecademy',
-  resave: false,
-  saveUninitialized: false
-}));
 
 
 /*
- * Variable Declarations
+* Variable Declarations
 */
 
 const PORT = 3000;
@@ -29,7 +24,7 @@ const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 
 /*
- * Passport Configurations
+* Passport Configurations
 */
 
 // second argument is the verify callback function, which is used to find a user
@@ -52,7 +47,7 @@ passport.deserializeUser((user, done) => {
 
 
 /*
- *  Express Project Setup
+*  Express Project Setup
 */
 
 app.set('views', path.join(__dirname + '/views'));
@@ -60,6 +55,11 @@ app.set('view engine', 'ejs');
 app.use(partials());
 app.use(express.json());
 app.use(express.static(path.join(__dirname + '/public')));
+app.use(session({
+  secret: 'codecademy',
+  resave: false,
+  saveUninitialized: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
