@@ -86,6 +86,7 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+app.get('/auth/github');
 
 
 
