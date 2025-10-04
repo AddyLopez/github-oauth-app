@@ -86,11 +86,15 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
+// passport.authenticate(<strategy>, <scope of the grant>)
 app.get('/auth/github', passport.authenticate('github', {
   scope: ['user']
 }));
-// passport.authenticate(<strategy>, <scope of the grant>)
-
+// authorization callback URL. This is where GitHub will redirect after a user authorizes it
+app.get('/auth/github/callback', passport.authenticate('github', {
+  failureRedirect: "/login",
+  successRedirect: "/"
+}))
 
 
 /*
