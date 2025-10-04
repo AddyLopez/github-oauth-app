@@ -2,7 +2,6 @@
  * Package Imports
 */
 
-
 const path = require("path");
 require("dotenv").config();
 const express = require('express');
@@ -64,7 +63,15 @@ app.use(express.static(__dirname + '/public'));
 app.use(passport.initialize());
 app.use(passport.session());
 
-
+/*
+ * ensureAuthenticated Callback Function
+*/
+const ensureAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login');
+}
 /*
  * Routes
 */
@@ -103,12 +110,3 @@ app.get('/auth/github/callback', passport.authenticate('github', {
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-/*
- * ensureAuthenticated Callback Function
-*/
-const ensureAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/login');
-}
