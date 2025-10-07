@@ -1,7 +1,5 @@
 # github-oauth-app
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ## Description
 Codecademy project to learn how to authenticate an application integrating my GitHub account into an OAuth authentication flow.
 
@@ -15,7 +13,3 @@ OAuth, GitHub, NodeJS, ExpressJS, Passport
 ![login](./previews/login.png)
 ![redirect](./previews/redirect.png)
 ![profile](./previews/profile.png)
-=======
->>>>>>> parent of 5a3cbd2 (Add Project Previews section and images)
-=======
->>>>>>> parent of 5a3cbd2 (Add Project Previews section and images)
